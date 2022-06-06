@@ -1,0 +1,70 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<Schema Namespace="CommonContainerModel" Alias="Self" annotation:UseStrongSpatialTypes="false" xmlns:annotation="http://schemas.microsoft.com/ado/2009/02/edm/annotation" xmlns:customannotation="http://schemas.microsoft.com/ado/2013/11/edm/customannotation" xmlns="http://schemas.microsoft.com/ado/2009/11/edm">
+  <EntityType Name="tblLogin">
+    <Key>
+      <PropertyRef Name="Id" />
+    </Key>
+    <Property Name="Id" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+    <Property Name="UserName" Type="String" MaxLength="50" FixedLength="false" Unicode="false" />
+    <Property Name="password" Type="String" MaxLength="50" FixedLength="false" Unicode="true" />
+    <Property Name="Lastlogin" Type="DateTime" Precision="3" />
+  </EntityType>
+  <EntityContainer Name="DbContextEntities" annotation:LazyLoadingEnabled="true">
+    <EntitySet Name="tblLogins" EntityType="Self.tblLogin" />
+    <FunctionImport Name="Usp_GetCategoryById" ReturnType="Collection(CommonContainerModel.Usp_GetCategoryById_Result)">
+      <Parameter Name="id" Mode="In" Type="Int32" />
+    </FunctionImport>
+    <FunctionImport Name="Usp_GetDataByIdName" ReturnType="Collection(CommonContainerModel.Usp_GetDataByIdName_Result)">
+      <Parameter Name="id" Mode="In" Type="Int32" />
+      <Parameter Name="name" Mode="In" Type="String" />
+    </FunctionImport>
+    <FunctionImport Name="Usp_InsertDataCategory">
+      <Parameter Name="categoryname" Mode="In" Type="String" />
+    </FunctionImport>
+    <FunctionImport Name="Usp_InsertDataPOST">
+      <Parameter Name="postweight" Mode="In" Type="Int32" />
+      <Parameter Name="postman" Mode="In" Type="String" />
+      <Parameter Name="categoryid" Mode="In" Type="Int32" />
+    </FunctionImport>
+    <FunctionImport Name="Usp_DeleteLogin">
+      <Parameter Name="id" Mode="In" Type="Int32" />
+    </FunctionImport>
+    <FunctionImport Name="Usp_GetLogin" ReturnType="Collection(CommonContainerModel.Usp_GetLogin_Result)" />
+    <FunctionImport Name="Usp_GetLoginById" ReturnType="Collection(CommonContainerModel.Usp_GetLoginById_Result)">
+      <Parameter Name="id" Mode="In" Type="Int32" />
+    </FunctionImport>
+    <FunctionImport Name="Usp_InsertLogin">
+      <Parameter Name="UserName" Mode="In" Type="String" />
+      <Parameter Name="Password" Mode="In" Type="String" />
+      <Parameter Name="LastLogin" Mode="In" Type="DateTime" />
+    </FunctionImport>
+    <FunctionImport Name="Usp_UpdateLogin">
+      <Parameter Name="id" Mode="In" Type="Int32" />
+      <Parameter Name="UserName" Mode="In" Type="String" />
+      <Parameter Name="Password" Mode="In" Type="String" />
+    </FunctionImport>
+  </EntityContainer>
+  <ComplexType Name="Usp_GetCategoryById_Result">
+    <Property Type="Int32" Name="CategoryId" Nullable="false" />
+    <Property Type="String" Name="CategoryName" Nullable="true" MaxLength="50" />
+  </ComplexType>
+  <ComplexType Name="Usp_GetDataByIdName_Result">
+    <Property Type="Int32" Name="PostId" Nullable="false" />
+    <Property Type="Int32" Name="PostWeight" Nullable="true" />
+    <Property Type="String" Name="PostName" Nullable="true" MaxLength="50" />
+    <Property Type="Int32" Name="CategoryId" Nullable="true" />
+    <Property Type="String" Name="CategoryName" Nullable="true" MaxLength="50" />
+  </ComplexType>
+  <ComplexType Name="Usp_GetLogin_Result">
+    <Property Type="Int32" Name="Id" Nullable="false" />
+    <Property Type="String" Name="UserName" Nullable="true" MaxLength="50" />
+    <Property Type="String" Name="password" Nullable="true" MaxLength="50" />
+    <Property Type="DateTime" Name="Lastlogin" Nullable="true" Precision="23" />
+  </ComplexType>
+  <ComplexType Name="Usp_GetLoginById_Result">
+    <Property Type="Int32" Name="Id" Nullable="false" />
+    <Property Type="String" Name="UserName" Nullable="true" MaxLength="50" />
+    <Property Type="String" Name="password" Nullable="true" MaxLength="50" />
+    <Property Type="DateTime" Name="Lastlogin" Nullable="true" Precision="23" />
+  </ComplexType>
+</Schema>

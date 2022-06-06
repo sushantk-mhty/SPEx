@@ -1,0 +1,59 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<Mapping Space="C-S" xmlns="http://schemas.microsoft.com/ado/2009/11/mapping/cs">
+  <EntityContainerMapping StorageEntityContainer="CommonContainerModelStoreContainer" CdmEntityContainer="DbContextEntities">
+    <EntitySetMapping Name="tblLogins">
+      <EntityTypeMapping TypeName="CommonContainerModel.tblLogin">
+        <MappingFragment StoreEntitySet="tblLogin">
+          <ScalarProperty Name="Id" ColumnName="Id" />
+          <ScalarProperty Name="UserName" ColumnName="UserName" />
+          <ScalarProperty Name="password" ColumnName="password" />
+          <ScalarProperty Name="Lastlogin" ColumnName="Lastlogin" />
+        </MappingFragment>
+      </EntityTypeMapping>
+    </EntitySetMapping>
+    <FunctionImportMapping FunctionImportName="Usp_GetCategoryById" FunctionName="CommonContainerModel.Store.Usp_GetCategoryById">
+      <ResultMapping>
+        <ComplexTypeMapping TypeName="CommonContainerModel.Usp_GetCategoryById_Result">
+          <ScalarProperty Name="CategoryId" ColumnName="CategoryId" />
+          <ScalarProperty Name="CategoryName" ColumnName="CategoryName" />
+        </ComplexTypeMapping>
+      </ResultMapping>
+    </FunctionImportMapping>
+    <FunctionImportMapping FunctionImportName="Usp_GetDataByIdName" FunctionName="CommonContainerModel.Store.Usp_GetDataByIdName">
+      <ResultMapping>
+        <ComplexTypeMapping TypeName="CommonContainerModel.Usp_GetDataByIdName_Result">
+          <ScalarProperty Name="PostId" ColumnName="PostId" />
+          <ScalarProperty Name="PostWeight" ColumnName="PostWeight" />
+          <ScalarProperty Name="PostName" ColumnName="PostName" />
+          <ScalarProperty Name="CategoryId" ColumnName="CategoryId" />
+          <ScalarProperty Name="CategoryName" ColumnName="CategoryName" />
+        </ComplexTypeMapping>
+      </ResultMapping>
+    </FunctionImportMapping>
+    <FunctionImportMapping FunctionImportName="Usp_InsertDataCategory" FunctionName="CommonContainerModel.Store.Usp_InsertDataCategory" />
+    <FunctionImportMapping FunctionImportName="Usp_InsertDataPOST" FunctionName="CommonContainerModel.Store.Usp_InsertDataPOST" />
+    <FunctionImportMapping FunctionImportName="Usp_DeleteLogin" FunctionName="CommonContainerModel.Store.Usp_DeleteLogin" />
+    <FunctionImportMapping FunctionImportName="Usp_GetLogin" FunctionName="CommonContainerModel.Store.Usp_GetLogin">
+      <ResultMapping>
+        <ComplexTypeMapping TypeName="CommonContainerModel.Usp_GetLogin_Result">
+          <ScalarProperty Name="Id" ColumnName="Id" />
+          <ScalarProperty Name="UserName" ColumnName="UserName" />
+          <ScalarProperty Name="password" ColumnName="password" />
+          <ScalarProperty Name="Lastlogin" ColumnName="Lastlogin" />
+        </ComplexTypeMapping>
+      </ResultMapping>
+    </FunctionImportMapping>
+    <FunctionImportMapping FunctionImportName="Usp_GetLoginById" FunctionName="CommonContainerModel.Store.Usp_GetLoginById">
+      <ResultMapping>
+        <ComplexTypeMapping TypeName="CommonContainerModel.Usp_GetLoginById_Result">
+          <ScalarProperty Name="Id" ColumnName="Id" />
+          <ScalarProperty Name="UserName" ColumnName="UserName" />
+          <ScalarProperty Name="password" ColumnName="password" />
+          <ScalarProperty Name="Lastlogin" ColumnName="Lastlogin" />
+        </ComplexTypeMapping>
+      </ResultMapping>
+    </FunctionImportMapping>
+    <FunctionImportMapping FunctionImportName="Usp_InsertLogin" FunctionName="CommonContainerModel.Store.Usp_InsertLogin" />
+    <FunctionImportMapping FunctionImportName="Usp_UpdateLogin" FunctionName="CommonContainerModel.Store.Usp_UpdateLogin" />
+  </EntityContainerMapping>
+</Mapping>
